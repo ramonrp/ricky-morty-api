@@ -1,4 +1,3 @@
-import { CharacterList } from 'scenes';
 import * as api from './api';
 import * as vm from './character-list.vm';
 

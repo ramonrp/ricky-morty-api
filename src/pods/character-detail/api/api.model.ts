@@ -2,6 +2,10 @@ interface CharacterLocation {
   name: string;
   url: string;
 }
+interface Origin {
+  name: string;
+  url: string;
+}
 
 export interface Character {
   created: string;
@@ -10,6 +14,7 @@ export interface Character {
   id: number;
   image: string;
   location: CharacterLocation;
+  origin: Origin;
   name: string;
   species: string;
   status: 'Dead' | 'Alive' | 'unknown';

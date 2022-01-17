@@ -1,6 +1,9 @@
 import * as React from 'react';
+import { useParams } from 'react-router-dom';
+import { CharacterDetailContainer } from 'pods/character-detail';
 const CharacterDetail: React.FC = () => {
-  return <h1>Character Detail Scene</h1>;
+  const { id } = useParams();
+  return <CharacterDetailContainer id={id} />;
 };
 
 export { CharacterDetail };

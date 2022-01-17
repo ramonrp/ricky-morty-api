@@ -1,3 +1,5 @@
-export function getCharacterById(url, id) {
-  return fetch(url + id).then(resp => console.log(resp));
+import { Character } from './api.model';
+
+export function getCharacterById(url: string): Promise<Character> {
+  return fetch(url).then(resp => resp.json());
 }
