@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { CharacterListContainer } from 'pods/character-list';
 const CharacterList: React.FC = () => {
-  return <h1>Character List Scene</h1>;
+  return <CharacterListContainer />;
 };
 
 export { CharacterList };
