@@ -8,7 +8,7 @@ interface SwitchRoutes {
 export const switchRoutes: SwitchRoutes = {
   about: '/about',
   characterList: '/',
-  characterDetail: 'characters/:id',
+  characterDetail: '/:id',
 };
 
 interface Routes extends Omit<SwitchRoutes, 'characterDetail'> {
