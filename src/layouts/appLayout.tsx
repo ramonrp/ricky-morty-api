@@ -2,10 +2,10 @@ import * as React from 'react';
 const AppLayout: React.FC = ({ children }) => {
   return (
     <div>
-      <header></header>
-      <div></div>
+      <header>Header</header>
+      <div>Hero</div>
       <main>{children}</main>
-      <footer></footer>
+      <footer>Footer</footer>
     </div>
   );
 };
