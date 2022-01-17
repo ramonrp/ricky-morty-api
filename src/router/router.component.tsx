@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { switchRoutes } from './routes';
-import { CharacterList, CharacterDetail, About } from '../scenes';
-import { AppLayout } from '../layouts';
+import { CharacterList, CharacterDetail, About } from 'scenes';
+import { AppLayout } from 'layouts';
 const AppRouter: React.FC = () => {
   return (
     <Router>
