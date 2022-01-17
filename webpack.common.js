@@ -6,6 +6,15 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      core: path.resolve(__dirname, 'src/core'),
+      scenes: path.resolve(__dirname, 'src/scenes'),
+      pods: path.resolve(__dirname, 'src/pods'),
+      layouts: path.resolve(__dirname, 'src/layouts'),
+      common: path.resolve(__dirname, 'src/common'),
+      'common-app': path.resolve(__dirname, 'src/common-app'),
+      router: path.resolve(__dirname, 'src/router'),
+    },
   },
   entry: ['./index.tsx'],
   output: {

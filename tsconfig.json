@@ -11,7 +11,17 @@
     "noLib": false,
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "common-app": ["common-app"],
+      "common": ["common"],
+      "layouts": ["layouts"],
+      "core": ["core"],
+      "scenes": ["scenes"],
+      "pods": ["pods"],
+      "router": ["router"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
