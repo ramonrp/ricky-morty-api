@@ -4,7 +4,10 @@ interface Response {
   info: {
     pages: number;
   };
+  error?: string;
 }
-export function getCharacters(url: string): Promise<Response> {
-  return fetch(url).then(resp => resp.json());
+export function getCharacters(url: string, name: string): Promise<Response> {
+  const queryName = name ? `?name=${name}` : '';
+  const endpoint = url + queryName;
+  return fetch(endpoint).then(resp => resp.json());
 }

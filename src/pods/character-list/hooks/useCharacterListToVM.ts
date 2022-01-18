@@ -4,8 +4,8 @@ import { CharacterListFromApiToVm } from '../character-list.mapper';
 
 const URL = process.env.BASE_RICKY_API;
 
-const useCharacterListToVM = () => {
-  const result = useSWR(URL, getCharacters);
+const useCharacterListToVM = (name: string) => {
+  const result = useSWR([URL, name], getCharacters);
   return {
     ...result,
     data: result.data !== undefined ? CharacterListFromApiToVm(result.data.results) : undefined,
