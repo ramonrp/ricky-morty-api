@@ -14,14 +14,16 @@ export function getCharacters(
   name: string,
   gender: string,
   specie: string,
-  status: string
+  status: string,
+  page: string
 ): Promise<Response> {
   const queryName = name ? `&name=${name}` : '';
   const queryGender = gender ? `&gender=${gender}` : '';
   const querySpecie = specie ? `&species=${specie}` : '';
   const queryStatus = status ? `&status=${status}` : '';
-  const endpointQuery = url + '?' + queryName + queryGender + querySpecie + queryStatus;
-  const hasQueries = queryName || queryGender || querySpecie || queryStatus;
+  const queryPage = page ? `&page=${page}` : '';
+  const endpointQuery = url + '?' + queryName + queryGender + querySpecie + queryStatus + queryPage;
+  const hasQueries = queryName || queryGender || querySpecie || queryStatus || queryPage;
   const endpoint = hasQueries ? endpointQuery : url;
   console.log(endpoint);
   return fetch(endpoint).then(resp => resp.json());

@@ -42,27 +42,36 @@ interface Props {
   gender: string;
   status: string;
   specie: string;
-  setName: React.Dispatch<React.SetStateAction<string>>;
-  setGender: React.Dispatch<React.SetStateAction<string>>;
-  setStatus: React.Dispatch<React.SetStateAction<string>>;
-  setSpecie: React.Dispatch<React.SetStateAction<string>>;
+  onChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeGender: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChangeStatus: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChangeSpecie: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const Filter: React.FC<Props> = props => {
-  const { gender, status, specie, setGender, setStatus, setSpecie, name, setName } = props;
+  const {
+    gender,
+    status,
+    specie,
+    onChangeGender,
+    onChangeStatus,
+    onChangeSpecie,
+    name,
+    onChangeName,
+  } = props;
   return (
     <div>
       <label htmlFor="name">Name</label>
-      <input id="name" value={name} onChange={e => setName(e.target.value)}></input>
-      <select name="status" id="status" value={status} onChange={e => setStatus(e.target.value)}>
+      <input id="name" value={name} onChange={e => onChangeName(e)}></input>
+      <select name="status" id="status" value={status} onChange={e => onChangeStatus(e)}>
         <option value="">Select Status</option>
         {STATUS}
       </select>
-      <select name="gender" id="gender" value={gender} onChange={e => setGender(e.target.value)}>
+      <select name="gender" id="gender" value={gender} onChange={e => onChangeGender(e)}>
         <option value="">Select Gender</option>
         {GENDER}
       </select>
-      <select name="species" id="species" value={specie} onChange={e => setSpecie(e.target.value)}>
+      <select name="species" id="species" value={specie} onChange={e => onChangeSpecie(e)}>
         <option value="">Select Species</option>
         {SPECIES}
       </select>
