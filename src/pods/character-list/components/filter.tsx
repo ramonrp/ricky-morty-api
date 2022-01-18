@@ -2,7 +2,7 @@ import * as React from 'react';
 const STATUS_OPTIONS = {
   dead: 'Dead',
   alive: 'Alive',
-  unknown: 'unkown',
+  unknown: 'unknown',
 };
 const STATUS = Object.values(STATUS_OPTIONS).map(option => (
   <option key={option} value={option}>
@@ -13,7 +13,7 @@ const GENDER_OPTIONS = {
   male: 'Male',
   female: 'Female',
   genderless: 'Genderless',
-  Unknonw: 'Unknown',
+  Unknonw: 'unknown',
 };
 const GENDER = Object.values(GENDER_OPTIONS).map(option => (
   <option key={option} value={option}>
