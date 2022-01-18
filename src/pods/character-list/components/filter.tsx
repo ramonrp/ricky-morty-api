@@ -1,3 +1,4 @@
+import * as React from 'react';
 const STATUS_OPTIONS = {
   dead: 'Dead',
   alive: 'Alive',
@@ -36,20 +37,32 @@ const SPECIES = Object.values(SPECIES_OPTIONS).map(option => (
   </option>
 ));
 
-const Filter: React.FC = () => {
+interface Props {
+  name: string;
+  gender: string;
+  status: string;
+  specie: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+  setGender: React.Dispatch<React.SetStateAction<string>>;
+  setStatus: React.Dispatch<React.SetStateAction<string>>;
+  setSpecie: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Filter: React.FC<Props> = props => {
+  const { gender, status, specie, setGender, setStatus, setSpecie, name, setName } = props;
   return (
     <div>
       <label htmlFor="name">Name</label>
-      <input id="name"></input>
-      <select name="status" id="status">
+      <input id="name" value={name} onChange={e => setName(e.target.value)}></input>
+      <select name="status" id="status" value={status} onChange={e => setStatus(e.target.value)}>
         <option value="">Select Status</option>
         {STATUS}
       </select>
-      <select name="gender" id="gender">
+      <select name="gender" id="gender" value={gender} onChange={e => setGender(e.target.value)}>
         <option value="">Select Gender</option>
         {GENDER}
       </select>
-      <select name="species" id="species">
+      <select name="species" id="species" value={specie} onChange={e => setSpecie(e.target.value)}>
         <option value="">Select Species</option>
         {SPECIES}
       </select>
