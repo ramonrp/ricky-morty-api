@@ -1,18 +1,8 @@
 import { Link } from 'react-router-dom';
-import useSWR from 'swr';
-import { getCharacters } from './api/api';
-import { CharacterListFromApiToVm } from './character-list.mapper';
-import { Character } from './character-list.vm';
+import { useCharacterListToVM } from './hooks/useCharacterListToVM';
 
-const URL = 'https://rickandmortyapi.com/api/character';
-const fetcher = async (url: string): Promise<Character[]> => {
-  const result = await getCharacters(url);
-  const charactersApi = result.results;
-  const characterVM = CharacterListFromApiToVm(charactersApi);
-  return characterVM;
-};
 const CharacterListContainer: React.FC = () => {
-  const { data: characters, error } = useSWR(URL, fetcher);
+  const { data: characters, error } = useCharacterListToVM();
   if (error) return <h1>There was an error fetching characters</h1>;
   if (!characters) {
     return <h1>Loading...</h1>;
