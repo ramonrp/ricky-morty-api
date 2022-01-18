@@ -3,6 +3,9 @@ interface Response {
   results?: Character[];
   info?: {
     pages: number;
+    count: number;
+    next: 'string';
+    prev: 'string';
   };
   error?: string;
 }
