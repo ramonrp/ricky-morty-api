@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCharacterListToVM } from './hooks/useCharacterListToVM';
-
+import { useDebounce } from 'use-debounce';
 const CharacterListContainer: React.FC = () => {
   const [name, setName] = useState('');
-  const { data: characters, error } = useCharacterListToVM(name);
-  console.log(error);
+  const [nameDebounced] = useDebounce(name, 500);
+  const { data: characters, error } = useCharacterListToVM(nameDebounced);
   if (error) return <h1>There was an error fetching characters</h1>;
   if (!characters) {
     return <h1>Loading...</h1>;
