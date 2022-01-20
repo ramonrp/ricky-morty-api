@@ -9,7 +9,6 @@ const AppRouter: React.FC = () => {
       <AppLayout>
         <Routes>
           <Route path={switchRoutes.characterList} element={<CharacterList />}></Route>
-          <Route path={switchRoutes.about} element={<About />}></Route>
           <Route path={switchRoutes.characterDetail} element={<CharacterDetail />}></Route>
         </Routes>
       </AppLayout>
