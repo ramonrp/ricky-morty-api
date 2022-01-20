@@ -1,5 +1,6 @@
 import { useState, ChangeEvent } from 'react';
 import { useDebounce } from 'use-debounce';
+import styled from 'styled-components';
 import { useCharacterListToVM } from './hooks/useCharacterListToVM';
 import { Filter } from './components/filter';
 import { Pagination } from './components/pagination';
@@ -64,7 +65,7 @@ const CharacterListContainer: React.FC = () => {
         onChangeName={handleName}
       />
       <Pagination page={page} handlePrev={handlePrev} handleNext={handleNext} />
-      {!data && <h1>Loading...</h1>}
+      {!data && <Loading>Loading...</Loading>}
       {data && <CharacterList characters={characters} />}
       {/* Improve UI experience download next page info */}
       {nextCharacters && (
@@ -78,3 +79,9 @@ const CharacterListContainer: React.FC = () => {
 };
 
 export { CharacterListContainer };
+
+const Loading = styled.div`
+  text-align: center;
+  font-size: 3rem;
+  padding: 32px;
+`;

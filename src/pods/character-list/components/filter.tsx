@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styled from 'styled-components';
 const STATUS_OPTIONS = {
   dead: 'Dead',
   alive: 'Alive',
@@ -60,23 +61,41 @@ const Filter: React.FC<Props> = props => {
     onChangeName,
   } = props;
   return (
-    <div>
+    <Wrapper>
       <label htmlFor="name">Name</label>
-      <input id="name" value={name} onChange={e => onChangeName(e)}></input>
-      <select name="status" id="status" value={status} onChange={e => onChangeStatus(e)}>
+      <Input id="name" value={name} onChange={e => onChangeName(e)}></Input>
+      <Select name="status" id="status" value={status} onChange={e => onChangeStatus(e)}>
         <option value="">Select Status</option>
         {STATUS}
-      </select>
-      <select name="gender" id="gender" value={gender} onChange={e => onChangeGender(e)}>
+      </Select>
+      <Select name="gender" id="gender" value={gender} onChange={e => onChangeGender(e)}>
         <option value="">Select Gender</option>
         {GENDER}
-      </select>
-      <select name="species" id="species" value={specie} onChange={e => onChangeSpecie(e)}>
+      </Select>
+      <Select name="species" id="species" value={specie} onChange={e => onChangeSpecie(e)}>
         <option value="">Select Species</option>
         {SPECIES}
-      </select>
-    </div>
+      </Select>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  gap: 16px;
+  flex-wrap: wrap;
+`;
+
+const Select = styled.select`
+  background-color: var(--background-color);
+  color: var(--text-color);
+`;
+
+const Input = styled.input`
+  background-color: var(--background-color);
+  color: var(--text-color);
+`;
 
 export { Filter };

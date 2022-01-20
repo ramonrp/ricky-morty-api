@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-
+import styled from 'styled-components';
 interface Props {
   page: number;
 
@@ -9,12 +9,26 @@ interface Props {
 const Pagination: React.FC<Props> = props => {
   const { page, handleNext, handlePrev } = props;
   return (
-    <div>
-      <button onClick={handlePrev}>prev</button>
+    <Wrapper>
+      <Button onClick={handlePrev}>prev</Button>
       {page}
-      <button onClick={handleNext}>next</button>
-    </div>
+      <Button onClick={handleNext}>next</Button>
+    </Wrapper>
   );
 };
 
 export { Pagination };
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  gap: 16px;
+`;
+
+const Button = styled.button`
+  background-color: var(--background-color);
+  color: var(--text-color);
+  cursor: pointer;
+  border: var(--text-color) solid 1px;
+`;
