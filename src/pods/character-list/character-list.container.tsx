@@ -63,14 +63,28 @@ const CharacterListContainer: React.FC = () => {
         name={name}
         onChangeName={handleName}
       />
-      <Pagination page={page} handlePrev={handlePrev} handleNext={handleNext} />
+      {data?.info?.pages && (
+        <Pagination
+          page={page}
+          handlePrev={handlePrev}
+          handleNext={handleNext}
+          totalPages={data.info.pages}
+        />
+      )}
       {!data && <Loading>Loading...</Loading>}
       <CharacterList characters={characters} />
       {/* Improve UI experience download next page info */}
       <div style={{ display: 'none' }}>
         <CharacterList characters={nextCharacters} />
       </div>
-      <Pagination page={page} handlePrev={handlePrev} handleNext={handleNext} />
+      {data?.info?.pages && (
+        <Pagination
+          page={page}
+          handlePrev={handlePrev}
+          handleNext={handleNext}
+          totalPages={data.info.pages}
+        />
+      )}
     </>
   );
 };

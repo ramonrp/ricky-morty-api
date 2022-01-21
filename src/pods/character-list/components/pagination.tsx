@@ -2,16 +2,16 @@ import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 interface Props {
   page: number;
-
+  totalPages: number;
   handleNext: () => void;
   handlePrev: () => void;
 }
 const Pagination: React.FC<Props> = props => {
-  const { page, handleNext, handlePrev } = props;
+  const { page, handleNext, handlePrev, totalPages } = props;
   return (
     <Wrapper>
       <Button onClick={handlePrev}>prev</Button>
-      {page}
+      {page} / {totalPages}
       <Button onClick={handleNext}>next</Button>
     </Wrapper>
   );
