@@ -2,18 +2,24 @@ import * as React from 'react';
 import styled from 'styled-components';
 import heroImg from '../../assets/statics/RickyMorty.jpg';
 import starsImg from '../../assets/statics/star.png';
-const Hero: React.FC = () => {
-  const imgRef = React.useRef(null);
+
+const useClipPathOnScroll = () => {
+  const ref = React.useRef<HTMLElement>(null);
   React.useEffect(() => {
     const handleScroll = () => {
       const value = window.scrollY;
-      imgRef.current.style.clipPath = `circle(${value * 3}px at center)`;
+      ref.current.style.clipPath = `circle(${value * 3}px at center)`;
     };
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  return ref;
+};
+
+const Hero: React.FC = () => {
+  const imgRef = useClipPathOnScroll();
   return (
     <Wrapper>
       <Img ref={imgRef} src={heroImg}></Img>
