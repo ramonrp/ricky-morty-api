@@ -12,10 +12,15 @@ const useCharacterListToVM = (
   page: string
 ) => {
   const response = useSWR([URL, name, gender, specie, status, page], getCharacters);
+  let characters;
+  if (response.data) {
+    if (response.data.error === undefined) {
+      characters = CharacterListFromApiToVm(response.data.results);
+    }
+  }
   return {
     ...response,
-    characters:
-      response.data !== undefined ? CharacterListFromApiToVm(response.data.results) : undefined,
+    characters,
   };
 };
 

@@ -21,6 +21,9 @@ const characterCard = (character: Character): JSX.Element => {
 
 const CharacterList: React.FC<Props> = props => {
   const { characters } = props;
+  if (characters === undefined) {
+    return <Title>No characters finded with that filter</Title>;
+  }
   return <Wrapper>{characters.map(characterCard)}</Wrapper>;
 };
 
@@ -89,4 +92,8 @@ const Article = styled.article`
     background: var(--border-linear-gradient);
     z-index: -1;
   }
+`;
+
+const Title = styled.h1`
+  text-align: center;
 `;

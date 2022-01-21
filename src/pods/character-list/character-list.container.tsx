@@ -26,7 +26,6 @@ const CharacterListContainer: React.FC = () => {
     status,
     String(page + 1)
   );
-  console.log(nextCharacters);
   const handleName = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
     setPage(1);
@@ -44,11 +43,11 @@ const CharacterListContainer: React.FC = () => {
     setPage(1);
   };
   const handleNext = () => {
-    if (!nextData.info.next) return;
+    if (!nextData?.info?.next) return;
     setPage(page + 1);
   };
   const handlePrev = () => {
-    if (!data.info.prev) return;
+    if (!data?.info?.prev) return;
     setPage(page - 1);
   };
   if (error) return <h1>There was an error fetching characters</h1>;
@@ -66,13 +65,11 @@ const CharacterListContainer: React.FC = () => {
       />
       <Pagination page={page} handlePrev={handlePrev} handleNext={handleNext} />
       {!data && <Loading>Loading...</Loading>}
-      {data && <CharacterList characters={characters} />}
+      <CharacterList characters={characters} />
       {/* Improve UI experience download next page info */}
-      {nextCharacters && (
-        <div style={{ display: 'none' }}>
-          <CharacterList characters={nextCharacters} />
-        </div>
-      )}
+      <div style={{ display: 'none' }}>
+        <CharacterList characters={nextCharacters} />
+      </div>
       <Pagination page={page} handlePrev={handlePrev} handleNext={handleNext} />
     </>
   );
