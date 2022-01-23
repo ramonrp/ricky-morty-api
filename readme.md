@@ -9,6 +9,12 @@ This app is a proyect from React module of master frontend of lemoncode. Feature
 - Pagination
 - Debounnce filter by name
 
+## Result
+
+You can find live site in below link
+
+[Ricky and Morty Character Searcher](https://rick-morty-api-dun.vercel.app/)
+
 ## Dependencies
 
 - react-router-dom: how to setup rutes with TS and use them.
