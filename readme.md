@@ -1,34 +1,28 @@
-# Webpack 5 boilerplate
+# Rick and Morty
 
-![](https://habrastorage.org/webt/q-/lv/b0/q-lvb0d4li7cpi-hsctistlzooi.png)
+## Description
 
-## Features
+This app is a proyect from React module of master frontend of lemoncode. Features:
 
-[Webpack 5](https://webpack.js.org/) boilerplate with support of most common loaders and modules:
+- Get a list of characters from an API.
+- Filter those characters by diferent properties.
+- Pagination
+- Debounnce filter by name
 
-- Webpack 5
-  - html template
-  - imports images, fonts.
-  - sass, [css modules](https://github.com/css-modules/css-modules) with automatic typescript declaration
-  - postcss loader
-  - generates source maps for development.
-  - Dev and Prod config
-  - Bundle analyzer
-  - Suppor for enviroment variables
-- [Babel](https://babeljs.io/)
-  - preset-env
-  - preset react
-- React
-  - [new JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) (no need to import react for using jsx)
-  - with react support (also with [react-refresh](https://www.npmjs.com/package/@pmmmwh/react-refresh-webpack-plugin))
-- Typescript support
-- [Prettier](https://www.npmjs.com/package/prettier)
-- [Webpack dev server](https://webpack.js.org/configuration/dev-server/)
-- [Husky](https://www.npmjs.com/package/husky) prehooks for prettier format.
+## Dependencies
+
+- react-router-dom: how to setup rutes with TS and use them.
+- SWC: library for catching data from server. In this proyect I use it for pagination and caching data for next pages in andavance to improve UI experience
+- Styled-Componentes: CSS-in-JS library used for styling.
+  -use-debounnce: hook used for debounnce
+
+## Architecture
+
+![](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe74ee1a9-6103-494c-ae69-2fdd762b3995%2FUntitled.png?table=block&id=9bcfba04-b166-4ea6-87bd-150eb0b3c410&spaceId=edc7e581-e050-4421-a5dd-441d70972874&width=2000&userId=8be32c3a-e00c-459a-a57c-9334f0c98d29&cache=v2)
 
 ## Instalation
 
-Click on the `Use this template` green button at the top - this will make a new github repo with clean commit history. Then clone it and install dependencies:
+Clone repository and and install dependencies:
 
 ```sh
 npm i
